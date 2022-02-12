@@ -5,6 +5,9 @@ const { validationResult } = require('express-validator/check');
 
 const signUp = async (req, res) => {
 
+    const user = await Auth.findOne({ where : { email: req.body.email}})
+    if(user) return res.status(400).json({ errors: 'Email already registered'});
+
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({
@@ -50,14 +53,14 @@ const login = async (req, res) => {
     };
 
     try{
-        const user = await Auth.findOne({ email: data.email });
+        const user = await Auth.findOne({ where : { email: req.body.email }});
 
         if(user) {
             const validPassword = await bcrypt.compare(data.password, user.password);
             if(validPassword) res.status(200).send(user);
             else res.status(400).send('Invalid Password');
         }
-        else res.status(401).send('User does not exist');
+        else res.status(401).send(user);
 
     } catch (error) {
         res.status(400).send(error.message);
