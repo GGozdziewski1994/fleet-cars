@@ -1,0 +1,32 @@
+.title--error {
+  padding: 1rem;
+  background: #cc798e;
+  color: white;
+  text-align: center;
+}
+
+.children--error {
+  padding: 1rem;
+  text-align: center;
+}
+
+.actions--error {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem;
+  & button {
+    font: inherit;
+    background: #b45364;
+    padding: 0.5rem 2rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  & :hover,
+  :active {
+    background: #7a4040;
+  }
+  & :focus {
+    outline: none;
+  }
+}

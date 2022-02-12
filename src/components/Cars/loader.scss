@@ -1,0 +1,46 @@
+#loader{
+  background: #807b7b;
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  top:50%;
+  left: calc(50% - 6px);
+  border-radius: 50%;
+  z-index: 2;
+  animation: spin 1.5s ease-in-out infinite ;
+}
+
+
+#loader:before{
+  content: "";
+  background: #807b7b;
+  position: absolute;
+  top: 0;
+  left: -200%;
+  height: 2vw;
+  width: 2vw;
+  border-radius: 50%;
+}
+
+#loader:after{
+  content: "";
+  background: #807b7b;
+  position: absolute;
+  top: 0;
+  right: -200%;
+  height: 2vw;
+  width: 2vw;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0%   {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

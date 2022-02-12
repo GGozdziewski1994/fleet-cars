@@ -1,0 +1,22 @@
+.add-car {
+  margin: 2rem 0;
+  text-align: center;
+  &--button {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border: none;
+    background: #3d4140;
+    color: #d2d2d2;
+    &:hover {
+      background: #2e2f2e;
+    }
+  }
+}
+
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 2rem;
+}
