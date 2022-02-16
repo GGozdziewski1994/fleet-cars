@@ -33,7 +33,7 @@ const httpReducer = (state, action) => {
 const useHttp = () => {
     const [httpState, dispatchHttp] = useReducer(httpReducer, initialState);
 
-    const cleanError = useCallback(() => dispatchHttp({type: CLEAR}, []));
+    const cleanError = () => dispatchHttp({type: CLEAR});
 
     const sendRequest = useCallback(async (url, method, body, addCar) => {
         dispatchHttp({type: SEND});
@@ -56,7 +56,7 @@ const useHttp = () => {
 
         try{
             const response = await fetch(url, dataBody);
-            if(!response.ok && (LOGIN || SIGN_UP)) throw Error('Wrong Email or Password!');
+            if(!response.ok && (LOGIN || SIGN_UP)) throw new Error('Wrong Email or Password!');
             if(!response.ok) throw new Error('Something went wrong!');
 
             if(!addCar) {

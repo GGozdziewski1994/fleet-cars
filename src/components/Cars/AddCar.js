@@ -30,7 +30,7 @@ const AddCar = props => {
         valueChangeHandler: yearChangeHandler,
         valueBlurHandler: yearBlurHandler,
         reset: resetYearInput
-    } = useForm(value => value >= '1900' && value <= `${createYear()}`);
+    } = useForm(value => Number(value) >= 1900 && Number(value) <= `${createYear()}`);
 
     const {
         value: enteredDate,
@@ -59,7 +59,6 @@ const AddCar = props => {
             year: enteredYear,
             mileage: enteredMileage,
             dateOfIntroduction: enteredDate,
-            isEdit: false,
         };
 
         props.onAdd(newCar);

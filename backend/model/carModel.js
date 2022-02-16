@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         mileage: {
             type: DataTypes.INTEGER
-        },
-        isEdit: {
-            type: DataTypes.BOOLEAN
         }
     });
 };
